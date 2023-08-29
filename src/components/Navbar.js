@@ -9,6 +9,10 @@ const Navbar = () => {
     setIsNavOpen(!isNavOpen);
   };
 
+  const closeNav = () => {
+    setIsNavOpen(false);
+  };
+
   const navLinksClass = isNavOpen ? "nav-links show-links" : "nav-links";
 
   return (
@@ -16,18 +20,18 @@ const Navbar = () => {
       <div className="nav-center">
         <div className="nav-header">
           <img src={logo} className="nav-logo" alt="backroads" />
-          <button
-            type="button"
-            className="nav-toggle"
-            onClick={toggleNav}
-          >
+          <button type="button" className="nav-toggle" onClick={toggleNav}>
             <i className="fas fa-bars"></i>
           </button>
         </div>
         <ul className={navLinksClass}>
           {pageLinks.map((item) => (
             <li key={item.id}>
-              <a href={item.href} className="nav-link">
+              <a
+                href={item.href}
+                className="nav-link"
+                onClick={closeNav} // Додано обробник події onClick для закриття меню
+              >
                 {item.text}
               </a>
             </li>
@@ -41,8 +45,7 @@ const Navbar = () => {
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"
-                className="nav-icon"
-              >
+                className="nav-icon">
                 <i className={item.icon}></i>
               </a>
             </li>
