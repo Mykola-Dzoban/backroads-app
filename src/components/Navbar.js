@@ -30,7 +30,7 @@ const Navbar = () => {
               <a
                 href={item.href}
                 className="nav-link"
-                onClick={closeNav} // Додано обробник події onClick для закриття меню
+                onClick={closeNav} 
               >
                 {item.text}
               </a>
